@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block extra_head %}
+<!-- JQuery ui -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+<!--[if lte IE 8]>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
+<![endif]-->
+<script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+
+<!-- Full Screen Control -->
+<link rel="stylesheet" href="{% static 'permit/css/leaflet_plugins/Control.FullScreen.css' %}" />
+<script type="text/javascript" src="{% static 'permit/js/leaflet_map/leaflet_plugins/Control.FullScreen.js' %}"></script>
+
+<!-- Sidebar control -->
+<link rel="stylesheet" href="{% static 'permit/css/leaflet_plugins/L.Control.Sidebar.css' %}" />
+<script type="text/javascript" src="{% static 'permit/js/leaflet_map/leaflet_plugins/L.Control.Sidebar.js' %}"></script>
+{% endblock %}
+
+{% block content%}
+<div class="container mycontainer">
+  <div class="row">
+    <div class="col-lg-12">
+      <h3>Map Filter</h3>
+      <hr class="section-heading-spacer3">
+      <div class="clearfix"></div>
+      <p><i class="fa fa-plus-square-o"></i> <a href='#' id="filter_control" style="text-decoration:none; color:inherit;">Show Filter</a></p>
+      <div id="map" class="thumbnail"> </div>
+      <hr>
+    </div>
+  </div>
+</div>
+<!-- /.container -->
+
+<!-- Sidebar -->
+<div class="well" id="sidebar">
+  <h4>Map Filter</h4><hr>
+  <p><strong>Business Form:</strong></p>
+  <select class="form-control" id="select_form" onchange="getResult()">
+      <option value="all">Show All</option>
+      <option disabled>---------------------------------------</option>         
+      <option value="Sole Proprietorship">Sole Proprietorship</option>
+      <option value="Patnership">Patnership</option>
+      <option value="Corporation">Corporation</option>            
+  </select>      
+  <br>
+  <p><strong>Business Type:</strong></p>
+  <select class="form-control" id="select_type" onchange="getResult()">
+      <option value="all">Show All</option>
+      <option disabled>---------------------------------------</option>         
+      <option value="Retail Shops">Retail Shops</option>
+      <option value="Alcohol Sales">Alcohol Sales</option>
+      <option value="Cybers">Cybers</option>         
+  </select>      
+  <br>
+  <p><strong>Business Compliance</strong></p>
+  <select class="form-control" id="select_compliance" onchange="getResult()">
+      <option value="all">Show All</option>
+      <option disabled>---------------------------------------</option>          
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
+  </select>  
+</div>
+{% endblock %}
+
+{% block extra_body %}
+<script src="{% static 'permit/js/leaflet_map/map.js' %}"></script>
+{% endblock %}

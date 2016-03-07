@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Login{% endblock %}
+{% load bootstrap3 %}
+{% load i18n %}
+{% load bootstrap_toolkit %}
+{% block content %}
+    <section class="container" style="height:670px;" >
+        <div class="row-fluid" align="center">
+              <div class="span5" style="width:30%;">
+                <h2>Bungoma BizConnect Login</h2>
+                <div class="status alert alert-success" style="display: none"></div>
+              {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                  <div class="alert alert-danger alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {{ error }}
+                  </div>
+                {% endfor %}
+              {% endif %}
+               <form method="post" action="{% url 'login' %}" role="form">
+                      {% csrf_token %}
+                      <div class="form-group{% if form.username.errors %} has-error{% endif %}">
+                        <label for="username">{% trans 'Username' %}</label>
+                        <input type="text" class="form-control" id="username" name="username">
+                        {% for error in form.username.errors %}
+                          <label class="control-label">{{ error }}</label>
+                        {% endfor %}
+                      </div>
+                      <div class="form-group{% if form.password.errors %} has-error{% endif %}">
+                        <label for="password">{% trans 'Password' %}</label>
+                        <input type="password" class="form-control" id="password" name="password">
+                        {% for error in form.password.errors %}
+                          <label class="control-label">{{ error }}</label>
+                        {% endfor %}
+                      </div>
+                      <div class="form-group">
+                        <button type="submit" class="btn btn-default">{% trans 'Log in' %}</button>
+                        <a href="{% url 'signup' %}" class="btn btn-link">{% trans 'Sign up ' %}</a>
+                      </div>
+                    </form>
+                <hr>
+            </div>              
+    </div>
+
+</section>
+
+<!--/bottom-->
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<form method="post" action="{% url 'land_portal' %}">{% csrf_token %}
+{{ form.as_p }}
+<button type="submit">Save</button>
+</form>
+
+{% endblock %}

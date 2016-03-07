@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Business - Interim{% endblock %}
+{% load bootstrap3 %}
+{% load bootstrap_toolkit %}
+{% block content %}
+    <section class="container" style="height:670px;">
+        <div class="row-fluid">
+            <div class="span5">
+                <h2>Interim Licence</h2>
+                <div class="status alert alert-success" style="display: none"></div>
+
+	            <form method="post" action="{% url 'generate_permit' %}">{% csrf_token %}
+					<button type="submit">Request interim license</button>
+				</form>
+				<hr>
+            </div>
+    </div>
+
+</section>
+
+<!--/bottom-->
+
+{% endblock %}

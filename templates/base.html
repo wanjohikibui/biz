@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load staticfiles %}
+    {% load i18n %}
+    {% block head %}  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=" Businesses in Bungoma County">
+    <meta name="author" content="Wanjohi Kibui">
+    <link rel="icon" href="{% static 'permit/img/favicon.ico' %}">
+    {% endblock %}
+    {% block header %}
+    <title>Bungoma | BizTrac </title>
+    <!-- Jquery -->
+    <script src="{% static 'permit/js/jquery-1.10.2.js' %}"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'permit/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'permit/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="{% static 'permit/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Marmelad' rel='stylesheet' type='text/css'>
+    <!-- Custom CSS -->
+    <link href="{% static 'permit/css/stylesheet.css' %}" rel="stylesheet">
+    <!-- JavaScript -->
+    <script src="{% static 'permit/js/bootstrap.js' %}"></script>
+
+    {% endblock %}
+    {% block extra_head %}
+    {% endblock %}
+</head>
+
+<body>
+
+   <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/"><img class="logo" src="{% static 'permit/img/logos.png' %}" alt="BizBungoma"><h4h5><strong>BizBungoma</strong></h5></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/admin/">Admin Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Contact</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'mapping' %}">View Businesses</a></li>
+                                <li><a href="{% url 'settings' %}">Customer Details</a></li>
+                                <li><a href="{% url 'business_portal' %}">Register Business</a></li>
+                            </ul>
+                    </li>
+                    <ul class="nav navbar-nav navbar-right">
+                    {% if user.is_authenticated %}
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, {{ user.username }}<b class="caret"></b></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="#"><span class="badge pull-right" id="unread-count">0</span> Inbox</a></li>
+                            <li><a href="{% url 'settings' %}">{% trans 'Account Settings' %}</a></li>
+                            <li class="divider"></li>
+                            <li><a href="{% url 'logout' %}">{% trans 'Log out' %}</a></li>
+                          </ul>
+                        </li>
+                        {% else %}
+                        <li><a href="{% url 'signup' %}">Register</a></li>
+                        <li><a href="{% url 'login' %}"><i class="icon-lock"> Login</i></a></li>
+                        {% endif %}
+                      </ul>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    {% block content %}
+    {% endblock %}       
+    {% block extra_body %}
+    {% endblock %}
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline">
+                        <li>
+                            <a href="#">Home</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#about">About</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#services">Services</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted small">Copyright &copy; 2016. Bungoma Business Revenue Tracking System</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

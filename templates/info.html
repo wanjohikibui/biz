@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+
+{% block extra_head %}
+<script src="{% static 'permit/js/jquery-1.10.2.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="container mycontainer"> 
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title"><i class="fa fa-info-circle"></i> Info</h4>
+				</div>
+				<div class="panel-body">
+					<h3>About the project</h3>
+				    <hr class="section-heading-spacer3">
+				    <div class="clearfix"></div>
+				    <p><strong>Hostels Map Filter</strong> is simple project which shows how to enable nice and easy way for users to filter and query map objects based on their attributes.<br>
+				    	Although all map objects here are related to model 'HostelsNY' it can easily be modifed and replaced with some any other model (depending on your needs).<br>Please have in mind that this is just basic version and that it could easily be extended depending on your needs.</p>
+				    	<hr>
+				    <h4>Used Technologies</h4>
+				    <ul>
+				    	<li><strong>Backend</strong>
+				    		<ul>
+				    			<li>Python (Geodjango 1.6.5)</li>
+				    		</ul>
+				    	</li>
+				    	<li><strong>Frontend</strong>
+				    		<ul>
+				    			<li>HTML5</li>
+				    			<li>Twitter Bootstrap</li>
+				    			<li>Javascript, JQuery</li>
+				    			<li>LeafletJS</li>
+				    		</ul>
+				    	</li>
+				    	<li><strong>Database</strong>
+				    		<ul><li>PostgreSQL 9.3 (PostGIS 2.1.2)</li></ul>
+				    	</li>
+				    </ul>
+				    <hr>
+				    <a href="https://github.com/kngeno/kimathi_hostels" style="text-decoration:underline; color:inherit;"><i class="fa fa-github-alt"></i> Github repository</a>
+				</div>
+			</div>
+		</div>	
+	</div>
+</div>
+<br><br>
+{% endblock %}

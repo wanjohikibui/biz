@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% block title %}Home | BizSystem{% endblock %}
+{% block content %}
+<a name="about"></a>
+    <div class="intro-header" >
+    <div class="intro-header">
+        <div class="container" >
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-message">
+                        <h1>Welcome to Bungoma business portal</h1>
+                        <h4>In this portal government services related to businesses are provided for the citizens of Bungoma County.To utilize the tools provided, find the location of the tool to open and use it. The tools can also be accessed from the Menu above.</h4>
+                        <hr class="intro-divider">
+                        <ul class="list-inline intro-social-buttons">
+                            <li>
+                                <a href="{% url 'settings' %}" class="btn btn-default btn-lg"><i class="fa fa-info-circle"></i> <span class="network-name">Customer Details</span></a>
+                            </li>
+                            <li>
+                                <a href="{% url 'business_portal' %}" class="btn btn-default btn-lg"><i class="fa fa-info-circle"></i> <span class="network-name">Register Business</span></a>
+                            </li>
+                            <li>
+                                <a href="{% url 'payment_customer' %}"  class="btn btn-default btn-lg"><i class="fa fa-info-circle"></i> <span class="network-name">Payment Details</span></a>
+                            </li>                            
+                            <li>
+                                <a href="{% url 'mapping' %}" class="btn btn-default btn-lg"><i class="fa fa-info-circle"></i> <span class="network-name">Search Businesses</span></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn btn-default btn-lg"><i class="fa fa-info-circle"></i> <span class="network-name">Read Documentation</span></a>
+                            </li>
+                            
+                        </ul>
+                         <hr class="intro-divider">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+<a  name="services"></a>
+    <div class="content-section-a">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Online business system:<br>Digital businesses</h2>
+                    <p class="lead">This system is developed to provide the services to the citizens of Bungoma County in the business sector.</p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                    <img class="img-responsive" src="{% static 'permit/img/intro-bg.jpg' %}"alt="">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.content-section-a -->
+
+    <div class="content-section-b">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Permits Applications<br>by Admin</h2>
+                    <p class="lead">Turn your permit application into a simple-step process today by just using the "apply permits" link provided to get permits</p>
+                </div>
+                <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+                    <img class="img-responsive" src="{% static 'permit/img/item10.png' %}" alt="">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+
+ <div class="content-section-a">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Faster.Efficient.Effective</h2>
+                    <p class="lead">Access quality and timely services in the business sector within Bungoma County.All the process are indicated under the documentation section as indicated above</p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                    <img class="img-responsive" src="{% static 'permit/img/banner-bg.jpg' %}" alt="">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+     <div class="content-section-b">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Visualization & Mapping portal</h2>
+                    <p class="lead">Visualize data on maps for better decision making and utilize cutting edge spatial tools in business management and planning.</p>
+                </div>
+                <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+                    <img class="img-responsive" src="{% static 'permit/img/map.png' %}" alt="">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+     
+    <!-- /.content-section-a -->
+
+    <a  name="contact"></a>
+    <div class="banner">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2>Connect to BizBungoma today:</h2>
+                </div>
+                <div class="col-lg-6">
+                    <ul class="list-inline banner-social-buttons">
+                        <li>
+                            <a href="#" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                        </li>
+                        <li>
+                            <a href="#" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                        </li>
+                        <li>
+                            <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+{% endblock %}

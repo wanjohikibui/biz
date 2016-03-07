@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Customer{% endblock %}
+{% load bootstrap3 %}
+{% load bootstrap_toolkit %}
+{% block content %}
+    <section class="container">
+        <div class="row-fluid">
+            <div class="span5">
+                <h2>Customer Details</h2>
+                <div class="status alert alert-success" style="display: none"></div>
+
+                <form method="post" action="{% url 'customer_portal' %}" enctype="multipart/form-data">
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-{{message.tags}} alert-dissmissable">
+                                    {{message}}
+                                </div>
+                            {% endfor %}
+                        {% endif %} 
+                        {% csrf_token %}
+                        {{ form|as_bootstrap }}
+                        <br>
+                        <button class="btn btn-primary" type="submit">Save</button>
+                    </form>
+                <hr>
+            </div>
+    </div>
+
+</section>
+
+<!--/bottom-->
+
+{% endblock %}

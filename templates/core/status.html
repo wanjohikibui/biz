@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Status{% endblock %}
+{% load bootstrap3 %}
+{% load bootstrap_toolkit %}
+{% block content %}
+<script type="text/css">
+	table {
+	    border-spacing: 5px;
+	}
+	th {
+	    text-align: right;
+	} 
+</script>
+<div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span9" style="height:620px"> 
+            	<div class="span11">
+	                <h3>Welcome, {{ user.username }}!</h3>
+	                <p><h5>This page shows the status of your application.Check the application/applications below and confirm details and the status.Feel free to contact incase of any issue.</h5>
+	            </div> 
+	            <hr>
+	            <br>
+	            <br>               
+				<div class="span11">  
+					<table border="1" style="width:100%">					  
+					  {% if user.is_staff %}
+					  <p><h3>Sorry, this seems to be a staff account.There are no entries for this account.</h3></p>
+					  {% else %}
+					  <caption><h4>Application Information</h4></caption>
+					  
+					  <tr>
+					    <th text-align:"left">App ID </th>
+					    <th>First Name</th>
+						<th>Last Name</th>
+						<th>Email</th>
+						<th>Telephone</th>
+						<th>Date Applied</th>
+						<th>Application Type</th>
+						<th>County</th>
+						<th>Town</th>
+						<th>Status</th>
+					  </tr>	
+					  {% for k in applications %}			  
+					  <tr>
+					    <td>{{ k.app_id }}</td>				        
+					    <td>{{k.first_name}}</td>
+					    <td>{{k.last_name}}</td>					       
+					    <td>{{k.email}}</td>	
+					    <td>{{k.telephone}}</td>					    
+					    <td>{{k.date_applied}}</td>					        
+					    <td>{{k.application_type}}</td>
+					    <td>{{k.county}}</td>
+					    <td>{{k.closest_town}}</td>					    
+					    <td>{{k.status}}</td>	
+					  </tr>					  
+					  {% endfor %}
+					  {% endif %}
+					</table>
+				</div>
+
+            </div>
+        </div>
+    </div>
+      
+{% endblock %}
+

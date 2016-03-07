@@ -1,0 +1,7 @@
+{% load i18n %}
+<div class="list-group">
+  <a href="{% url 'apply' %}" class="list-group-item{% if active == 'new' %} active{% endif %}">{% trans 'New Application' %}</a>
+  <a href="{% url 'apply' %}" class="list-group-item{% if active == 'profile' %} active{% endif %}">{% trans 'Application' %}</a>
+  <a href="{% url 'picture' %}" class="list-group-item{% if active == 'picture' %} active{% endif %}">{% trans 'Edit Application' %}</a>
+  <a href="{% url 'status' %}" class="list-group-item{% if active == 'status' %} active{% endif %}">{% trans 'Status' %}</a>
+</div>

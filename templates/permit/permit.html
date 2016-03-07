@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Business{% endblock %}
+{% load bootstrap3 %}
+{% load bootstrap_toolkit %}
+{% block content %}
+    <section class="container">
+        <div class="row-fluid">
+            <div class="span5">
+                <h2>Select Business Permit</h2>
+                <div class="status alert alert-success" style="display: none"></div>
+                <form action="{% url 'permit' %}" enctype="multipart/form-data" method="post">{% csrf_token %}
+                <div class="row-fluid">
+                <div class="span5">
+                       {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-{{message.tags}} alert-dissmissable">
+                                    {{message}}
+                                </div>
+                            {% endfor %}
+                        {% endif %}  
+                    <p><em>*All fields are required</em></p>                
+                        
+                        <div class="fieldWrapper">
+                            <label>Business Name:</label><br>
+                            {{ form.business_name }}
+                        </div>
+                        <div class="fieldWrapper">                
+                            <label>Business Profile:</label><br>
+                            {{ form.business_no}}
+                        </div>    
+              
+                </div>
+                <input class="btn btn-primary" type="submit" name="submit" class="btn" value="Apply Permit">
+                <p> </p>
+
+            </form>
+                <hr>
+            </div>
+    </div>
+
+</section>
+<!--/bottom-->
+
+{% endblock %}

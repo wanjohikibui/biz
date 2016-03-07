@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Business{% endblock %}
+{% load bootstrap3 %}
+{% load bootstrap_toolkit %}
+{% block content %}
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+    <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
+    <section class="container">
+        <div class="row-fluid">
+            <div class="span5">
+                <h2>Register New Business</h2>
+                <div class="status alert alert-success" style="display: none"></div>
+                 <form action="{% url 'business_portal' %}" enctype="multipart/form-data" method="post">{% csrf_token %}
+                  <div class="row-fluid">
+                    <div class="span5">
+                       {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-{{message.tags}} alert-dissmissable">
+                                    {{message}}
+                                </div>
+                            {% endfor %}
+                        {% endif %}  
+                    <p><em>*All fields are required</em></p>                
+                    
+                        <div class="fieldWrapper">
+                            <label>Business Name:</label><br>
+                            {{ form.business_name }}
+                        </div>    
+                        <div class="fieldWrapper">
+                            <label>Business No:</label><br>
+                            {{ form.business_no }}
+                        </div>    
+                        <div class="fieldWrapper">                
+                            <label>Business Email:</label><br>
+                            {{ form.business_email }}
+                        </div>
+                        <div class="fieldWrapper">                
+                            <label>Phone No:</label><br>
+                            {{ form.business_phone_no }}
+                        </div>
+                        <div class="fieldWrapper">                
+                            <label>Business Address:</label><br>
+                            {{ form.business_address }}
+                        </div>
+                        <div class="fieldWrapper">                
+                            <label>Parcel No:</label><br>
+                            {{ form.parcel_no }}
+                        </div>
+                        <div class="fieldWrapper">                
+                            <label>Business Form:</label><br>
+                            {{ form.business_form}}
+                        </div>
+                        <div class="fieldWrapper">                
+                            <label>Business Type:</label><br>
+                            {{ form.business_type}}
+                        </div>
+                        <div class="fieldWrapper">                
+                            <label>No. of Employees:</label><br>
+                            {{ form.business_no_employees}}
+                        </div>
+                    </div>
+                    <div class="span7">
+                         
+                        <div class="fieldWrapper">                
+                            <label>Business Class:</label><br>
+                            {{ form.business_class}}
+                        </div>
+                        <div class="fieldWrapper">                
+                            <label>Business Category:</label><br>
+                            {{ form.business_category}}
+                        </div>
+                        <div class="fieldWrapper">                
+                            <label>Business Scope:</label><br>
+                            {{ form.business_scope}}
+                        </div>
+                        <div class="fieldWrapper">                
+                            <label>Business Town:</label><br>
+                            {{ form.business_town}}
+                        </div>
+                        <div class="fieldWrapper">                
+                            <label>Business Street:</label><br>
+                            {{ form.business_street}}
+                        </div>
+                        <div class="fieldWrapper">                
+                            <label>Business Building:</label><br>
+                            {{ form.business_building}}
+                        </div>
+                        <div class="fieldWrapper">                
+                            <label>Business Zone:</label><br>
+                            {{ form.business_zone}}
+                        </div>
+                        <div class="fieldWrapper">                
+                            <label>Business Profile:</label><br>
+                            {{ form.business_profile}}
+                        </div>
+                        <br>
+                        <div class="fieldWrapper">
+                            <p>Place the marker where your business is located is</p>
+                            <div id="map" style="height:500px; width:50%; padding-top:100px;"></div>
+                            <input id="coordinates" name="coordinates" value="" type="hidden" />
+                        </div>                
+                        <br>
+                        
+                    </div>
+
+                </div>
+                <input class="btn btn-primary" type="submit" name="submit" class="btn" value="Update Business">
+                <p> </p>
+
+            </form>
+                <hr>
+            </div>
+    </div>
+
+</section>
+<script type="text/javascript" src="{% static 'permit/js/leaflet_map/business.js'%}"></script>
+<!--/bottom-->
+
+{% endblock %}

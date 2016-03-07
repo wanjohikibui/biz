@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Login{% endblock %}
+{% load bootstrap3 %}
+{% load i18n %}
+{% load bootstrap_toolkit %}
+{% block head %}
+  <link href="{% static 'permit/css/signup.css' %}" rel="stylesheet">
+{% endblock head %}
+{% block content %}
+    <section class="container" style="height:670px;">
+        <div class="row-fluid" style="width:60%;">
+              <div class="span5">
+               <h1 class="logo"><a href="">BUNGOMA BIZCONNECT SIGNUP</a></h1>
+                <div class="signup">
+                  <h2>{% trans 'Sign up ' %}</h2>
+                  <form action="{% url 'signup' %}" method="post" role="form">
+                    {% csrf_token %}
+                    {% for field in form.visible_fields %}
+                      <div class="form-group{% if field.errors %} has-error{% endif %}">
+                        <label for="{{ field.label }}">{{ field.label }}</label>
+                        {{ field }}
+                        {% if field.help_text %}
+                          <span class="help-block">{{ field.help_text|safe }}</span>
+                        {% endif %}
+                        {% for error in field.errors %}
+                          <label class="control-label">{{ error }}</label>
+                        {% endfor %}
+                      </div>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary btn-lg">{% trans 'Create an account' %}</button>
+                  </form>
+                </div>
+                <hr>
+            </div>              
+    </div>
+
+</section>
+
+<!--/bottom-->
+
+{% endblock %}

@@ -1,0 +1,82 @@
+{% load leaflet_tags %}
+{% load i18n %}
+{% load staticfiles %}
+{% leaflet_js %}
+{% leaflet_css %}
+{% load geojson_tags %}
+<html>
+  <head>
+  {% block header %}
+  <title>Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+  <link rel="stylesheet" href="http://makinacorpus.github.io/Leaflet.FileLayer/Font-Awesome/css/font-awesome.min.css"/>
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">  <!-- -->
+  <link rel="stylesheet" href="{% static 'ladm/css/L.Control.Sidebar.css' %}" />
+  <link rel="stylesheet" href="{% static 'ladm/css/style.css' %}" />
+  <link rel="stylesheet" href="{% static 'ladm/css/leaflet.label.css' %}" />
+  <link rel="stylesheet" href="{% static 'ladm/css/leaflet-search.css' %}" />
+  <link href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.2/leaflet.fullscreen.css' rel='stylesheet' />
+  <link rel="stylesheet" href="{% static 'ladm/css/leaflet.fusesearch.css' %}" />
+
+  {% endblock %}
+  </head>
+  <body>
+  	<div id="sidebar" class="sidebar">
+  		<ul class="sidebar-tabs" role="tablist">
+			<li class='active'><a href="{% url 'index' %}" role="tab"><i class="fa fa-navicon"></i></a></li>
+			<li id="selectat"><a href="#trasee" role="tab"><i class="fa fa-bicycle"></i></a></li>
+			<li id="traseulsaptamanii"><a href="#saptamanii" role="tab"><i class="fa fa-area-chart"></i></a></li>
+			<li><a href="#credits" role="tab"><i class="fa fa-users"></i></a></li>
+		</ul>
+		<div class="sidebar-content active">
+			<div class="sidebar-pane active" id="prezentare">
+				<a href="{% url 'index' %}" role="tab"class="fa fa-home"><h2>BizTrac Project</h2></a>
+				<hr>
+				<p>The land management policy in a country is critical component to climate change adaptation because it helps in establishing and mainstreaming the necessary conditions for policies and actions for climate change mitigation. Currently, Kenya’s land policy lacks linkage with climate change adaptation and mitigation. There is pressing need to incorporate concerns about climate change and natural disaster to land policy and governance in Kenya. </p>
+				<p>DeKut aims to implement a prototype land administration system that draws upon evolving practices in sustainable land management and land governance along with information and communication technology and geographic information systems. Building sustainable and spatially enabled land administration will help document land use and point out those that are under unsustainable use. This project therefore, will act as a starting point in the step towards establishing a linkage between land management and climate change adaptation and mitigation.</p>
+
+			</div>
+			<div class="sidebar-pane leaflet-control elevation" id="trasee">
+				<p id="initial">Selectează un traseu pentru a obține informații despre el</p>
+			</div>
+			<div class="sidebar-pane" id="saptamanii">
+				<h2>Results</h2>
+				<hr/>
+				<div id="descriere" class="leaflet-control elevation"></div>
+			</div>
+			<div class="sidebar-pane" id="credits">
+				<h2>Contribuții</h2>
+				<hr/>
+				<p>Această hartă există mulțumită:</p>
+				<ul>
+					<li>Excelentei librării JavaScript, <a href="http://leafletjs.com/" target="_blank">Leaflet</a>;</li>
+					<li>Proiectului <a href="http://www.thunderforest.com/" target="_blank">Thunderforest</a> și comunității <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> pentru tile-urile din fundal;</li>
+					<li>Companiei <a href="http://www.esri.com/" target="_blank">ESRI</a> pentru imaginile satelitare;</li>
+					<li>Lui Cornel Pufan, Constantin Cojocaru, Cristi Lazăr și Stelian Gagiu pentru pozele de pe trasee;</li>
+					<li>Prietenei mele pentru ajutorul dat în alegerea cuvintelor potrivite;</li>
+					<li>Tuturor celor care se dau.</li>
+				</ul>
+				<p>Și tu poți contribui la îmbunătățirea hărții, fie cu poze, fie cu idei de noi trasee, sau doar printr-un simplu feedback, pe care îl
+				aștept cu interes pe pagina de contact.</p>
+			</div>
+		</div>>
+  	</div>
+  	<div id="map" class="sidebar-map"></div>
+
+
+</body>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
+	<script type="text/javascript" src="{% static 'ladm/js/leaflet.label.js' %}" ></script>
+	<script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.2/Leaflet.fullscreen.min.js'></script>
+	-->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+	<script type="text/javascript" src="{% static 'ladm/js/L.Control.Sidebar.js' %}"></script>
+	<script type="text/javascript" src="{% static 'ladm/js/leaflet-search.js' %}"></script>
+	<script type="text/javascript" src="{% static 'ladm/js/fuse.js' %}"></script>
+	<script type="text/javascript" src="{% static 'ladm/js/leaflet.fusesearch.js' %}"></script>	
+    <!-- google maps -->
+    <script src="http://maps.google.com/maps/api/js?v=3&amp;sensor=false"></script> 
+	<script src= "{% static 'ladm/js/map/map.js' %}"></script>
+	
+</html>

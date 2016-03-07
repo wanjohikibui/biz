@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Business - Payment{% endblock %}
+{% load bootstrap3 %}
+{% load bootstrap_toolkit %}
+{% block content %}
+    <section class="container">
+        <div class="row-fluid">
+            <div class="span5">
+                <h2>Payment Details</h2>
+                <div class="status alert alert-success" style="display: none"></div>
+
+                <form method="post" action="{% url 'payment_customer' %}">{% csrf_token %}
+                	{% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-{{message.tags}} alert-dissmissable">
+                                    {{message}}
+                                </div>
+                            {% endfor %}
+                        {% endif %} 
+					{{ form.as_p }}
+					<button type="submit">Submit payment</button>
+				</form>
+                <hr>
+            </div>
+    </div>
+
+</section>
+
+<!--/bottom-->
+
+{% endblock %}
